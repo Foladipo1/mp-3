@@ -135,7 +135,7 @@ const HomeWrapper = styled.main`
 export default function Home(){
     return (
         <HomeWrapper>
-            <img alt="Profile Picture" src="../../../public/profile.png"/>
+            <img alt="Profile Picture" src="/profile.png"/>
             <h4>Pursuing BA/MS in Computer Science and AI at Boston University (May 2026) with hands-on experience in
                 deep learning,
                 model interpretability, and healthcare ML. Implemented transformer architectures for temporal
