@@ -1,168 +1,108 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const ExperienceStyled = styled.main`
-    min-height: 100vh /* viewport height and removes whitespace at the bottom */;
-    width: 70%;
-    text-align: center;
-    padding: 5vw; /* responsive margins to shrink with viewport*/
-    font-size: calc(2px + 1.5vw);
-    background-color: #ffffff;
+const Wrapper = styled.main`
+    font-family: 'DM Sans', sans-serif;
+    color: #1a1a1a;
+    max-width: 720px;
+`;
 
-    h2 {
-        font-size: calc(18px + 1vw);
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: #2c3e50;
-        border-bottom: 2px solid #c0392b;
-        padding-bottom: 0.5rem;
-    }
+const SectionTitle = styled.h2`
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8e4df;
+`;
 
-    h3 {
-        font-size: calc(14px + 0.8vw);
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-    }
+const ExperienceItem = styled.div`
+  padding: 28px 0;
+  border-bottom: 1px solid #e8e4df;
+  &:last-child { border-bottom: none; }
+`;
 
-    h4 {
-        font-size: calc(12px + 0.6vw);
-        font-weight: 600;
-        color: #34495e;
-    }
+const ItemHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 2px;
 
-    p {
-        font-size: calc(12px + 0.4vw);
-        line-height: 1.6;
-        margin-bottom: 0.8rem;
-        color: #34495e;
-    }
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+  }
 
-    p strong {
-        font-weight: 700;
-        color: #2c3e50;
-    }
+  span {
+    font-size: 0.8rem;
+    color: #6b6b6b;
+    white-space: nowrap;
+  }
+`;
 
-    p em {
-        color: #7f8c8d;
-        font-style: italic;
-    }
+const Meta = styled.p`
+  font-size: 0.8rem;
+  color: #6b6b6b;
+  margin: 0 0 12px;
+`;
 
-    ul {
-        margin-left: 2rem;
-        margin-bottom: 1rem;
-    }
+const BulletList = styled.ul`
+  margin: 0;
+  padding-left: 16px;
 
-    li {
-        font-size: calc(11px + 0.4vw);
-        line-height: 1.7;
-        margin-bottom: 0.5rem;
-        color: #34495e;
-    }
+  li {
+    font-size: 0.85rem;
+    color: #3a3a3a;
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+`;
 
-    a {
-        color: #c0392b;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    h3 + p {
-        margin-top: 0.3rem;
-    }
-
-    hr {
-        border: none;
-        border-top: 1px solid #bdc3c7;
-        margin: 3rem 0;
-    }
-    
-    
-    @media (max-width: 999px) {
-        main {
-            width: 100%;
-        }
-        
-    }
-    @media (max-width: 749px) {
-        width: 100%;
-
-        .experience-item{
-            padding: 1.5rem 0;}
-
-        h2 {
-            font-size: calc(16px + 1vw);
-        }
-
-        ul {
-            margin-left: 1.5rem;
-        }
-    }
-    
-    .experience-item
-   {
-        text-align: left;
-        padding: 2rem 0;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 1.5rem;
-    }
-    
-    
-`
 export default function Experience() {
     return (
-        <ExperienceStyled>
-            <h2>Professional Experience</h2>
+        <Wrapper>
+            <SectionTitle>Experience</SectionTitle>
 
-            <div className="experience-item">
-                <h3>Machine Learning Intern</h3>
-                <p><strong>Foremost Radiology Consultant Limited</strong> | Lagos, Nigeria</p>
-                <p><em>Summer 2025</em></p>
-                <ul>
-                    <li>Evaluated multiple CNN architectures for medical scan classification, analyzing model
-                        performance across different imaging modalities and scan types
-                    </li>
-                    <li>Conducted comparative accuracy analysis using PyTorch, identifying performance gaps and
-                        documenting model behavior on edge cases for clinical review
-                    </li>
-                    <li>Collaborated with radiologists to define evaluation criteria and interpret model predictions in
-                        clinical context
-                    </li>
-                </ul>
-            </div>
+            <ExperienceItem>
+                <ItemHeader>
+                    <h3>Machine Learning Intern</h3>
+                    <span>Summer 2025</span>
+                </ItemHeader>
+                <Meta>Foremost Radiology Consultant Ltd. · Lagos, Nigeria</Meta>
+                <BulletList>
+                    <li>Built a batch inference pipeline in PyTorch to benchmark 3 CNN architectures on a ~1,000-image chest scan dataset for early tuberculosis detection, automating metric collection and edge-case documentation.</li>
+                    <li>Collaborated with radiologists to define evaluation criteria and interpret model failure modes across imaging modalities.</li>
+                </BulletList>
+            </ExperienceItem>
 
-            <div className="experience-item">
-                <h3>Course Assistant — Algorithms & Machine Learning</h3>
-                <p><strong>Boston University</strong> | Boston, MA</p>
-                <p><em>2023 – Present</em></p>
-                <ul>
-                    <li>Led office hours and lab sessions for 200+ students, explaining modern deep learning
-                        architectures including CNNs, RNNs, Transformers, and GANs
-                    </li>
-                    <li>Simplified complex concepts like backpropagation and optimization techniques using analogies and
-                        visual demonstrations
-                    </li>
-                    <li>Debugged PyTorch implementations and reviewed student projects on neural network training,
-                        hyperparameter tuning, and algorithmic problem-solving
-                    </li>
-                </ul>
-            </div>
+            <ExperienceItem>
+                <ItemHeader>
+                    <h3>Course Assistant — Deep Learning, Systems & Algorithms</h3>
+                    <span>2023 – Present</span>
+                </ItemHeader>
+                <Meta>Boston University · Boston, MA</Meta>
+                <BulletList>
+                    <li>Supported 200+ students across 3 courses over 5 semesters; ran exam review sessions and one-on-one midterm prep.</li>
+                    <li>Debugged student PyTorch and C code hands-on, covering CNNs, RNNs, Transformers, backpropagation, and algorithm design.</li>
+                    <li>Graded assignments and contributed occasional updates to course materials.</li>
+                </BulletList>
+            </ExperienceItem>
 
-            <div className="experience-item">
-                <h3>Independent Technology Consultant</h3>
-                <p><strong>Freelance</strong> | Remote</p>
-                <p><em>2021 – 2023</em></p>
-                <ul>
-                    <li>Provided one-on-one and at-home instruction teaching coding fundamentals to younger students
-                        using Python and JavaScript
-                    </li>
-                    <li>Educated older clients on AI safety, cybersecurity best practices, and general IT
-                        troubleshooting
-                    </li>
-                    <li>Delivered personalized technical support including device setup, error resolution, and software
-                        training
-                    </li>
-                </ul>
-            </div>
-        </ExperienceStyled>
-    )
+            <ExperienceItem>
+                <ItemHeader>
+                    <h3>Independent Technology Consultant</h3>
+                    <span>2021 – 2023</span>
+                </ItemHeader>
+                <Meta>Freelance · Remote</Meta>
+                <BulletList>
+                    <li>Taught coding fundamentals to younger students using Python and JavaScript through one-on-one sessions.</li>
+                    <li>Educated clients on AI safety, cybersecurity best practices, and general IT troubleshooting.</li>
+                </BulletList>
+            </ExperienceItem>
+
+        </Wrapper>
+    );
 }

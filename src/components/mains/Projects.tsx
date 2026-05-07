@@ -1,209 +1,210 @@
-import './Calculator.tsx'
-import Calculator from "./Calculator.tsx";
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const ProjectStyled =styled.main`
-    min-height: 100vh /* viewport height and removes whitespace at the bottom */;
-    width: 70%;
-    text-align: center;
-    padding: 5vw; /* responsive margins to shrink with viewport*/
-    font-size: calc(2px + 1.5vw);
-    background-color: #ffffff;
+const Wrapper = styled.main`
+  font-family: 'DM Sans', sans-serif;
+  color: #1a1a1a;
+  max-width: 720px;
+`;
 
-    h2 {
-        font-size: calc(18px + 1vw);
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: #2c3e50;
-        border-bottom: 2px solid #c0392b;
-        padding-bottom: 0.5rem;
-    }
+const SectionTitle = styled.h2`
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8e4df;
+`;
 
-    h3 {
-        font-size: calc(14px + 0.8vw);
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-    }
+const ProjectItem = styled.div`
+  padding: 28px 0;
+  border-bottom: 1px solid #e8e4df;
+  &:last-child { border-bottom: none; }
+`;
 
-    h4 {
-        font-size: calc(12px + 0.6vw);
-        font-weight: 600;
-        color: #34495e;
-    }
+const ItemHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 4px;
 
-    p {
-        font-size: calc(12px + 0.4vw);
-        line-height: 1.6;
-        margin-bottom: 0.8rem;
-        color: #34495e;
-    }
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+  }
 
-    p strong {
-        font-weight: 700;
-        color: #2c3e50;
-    }
+  span {
+    font-size: 0.8rem;
+    color: #6b6b6b;
+    white-space: nowrap;
+  }
+`;
 
-    p em {
-        color: #7f8c8d;
-        font-style: italic;
-    }
+const Meta = styled.div`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
 
-    ul {
-        margin-left: 2rem;
-        margin-bottom: 1rem;
-    }
+  a {
+    font-size: 0.8rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
+    &:hover { color: #6b6b6b; border-color: #6b6b6b; }
+  }
+`;
+
+const TagRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+`;
+
+const Tag = styled.span`
+  font-size: 0.78rem;
+  color: #1a1a1a;
+  background: #f0eee9;
+  padding: 3px 10px;
+  border-radius: 20px;
+`;
+
+const BulletList = styled.ul`
+    margin: 0;
+    padding-left: 16px;
 
     li {
-        font-size: calc(11px + 0.4vw);
+        font-size: 0.85rem;
+        color: #3a3a3a;
         line-height: 1.7;
-        margin-bottom: 0.5rem;
-        color: #34495e;
+        margin-bottom: 4px;
     }
+`;
 
-    a {
-        color: #c0392b;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    h3 + p {
-        margin-top: 0.3rem;
-    }
-
-    hr {
-        border: none;
-        border-top: 1px solid #bdc3c7;
-        margin: 3rem 0;
-    }
-
-
-    @media (max-width: 999px) {
-            width: 100%;
-    }
-    @media (max-width: 749px) {
-        width: 100%;
-
-        .project-item{
-            padding: 1.5rem 0;}
-
-        h2 {
-            font-size: calc(16px + 1vw);
-        }
-
-        ul {
-            margin-left: 1.5rem;
-        }
-    }
-
-    .project-item
-    {
-        text-align: left;
-        padding: 2rem 0;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 1.5rem;
-    }
-`
-export default function Projects (){
+export default function Projects() {
     return (
-        <ProjectStyled>
-            <h2>Projects</h2>
+        <Wrapper>
+            <SectionTitle>Projects</SectionTitle>
 
-            <div className="project-item">
-                <h3>EPL Match Outcome Predictor with Dual-Task Transformer</h3>
-                <p><strong>Technologies:</strong> PyTorch, Transformers, Pandas, scikit-learn</p>
-                <p><em>2025</em> | <a href="https://github.com/Foladipo1" target="_blank">GitHub</a></p>
-                <ul>
-                    <li>Built transformer and MLP models for match outcome prediction and goal differential regression
-                        on 3,420 English Premier League matches
-                    </li>
-                    <li>Achieved 57% test accuracy on match outcome classification, exceeding published benchmarks for
-                        football prediction
-                    </li>
-                    <li>Designed temporal feature encoding with 20-match rolling team history incorporating advanced
-                        football metrics including expected goals (xG), passes per defensive action (PPDA), and deep
-                        progressions
-                    </li>
-                    <li>Conducted comprehensive architecture comparison study showing MLP outperformed transformer by
-                        11% accuracy, attributed to limited dataset size and feature engineering quality
-                    </li>
-                </ul>
-            </div>
+            <ProjectItem>
+                <ItemHeader>
+                    <h3>VisionSentry — Thermal UAV Detection & Tracking</h3>
+                    <span>2025</span>
+                </ItemHeader>
+                <Meta>
+                    <a href="https://github.com/foladipo" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </Meta>
+                <TagRow>
+                    {["PyTorch", "YOLOv12", "BoT-SORT", "OpenCV", "SLURM"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Built an end-to-end IR drone detection and tracking pipeline on BU SCC; trained YOLOv12 on 318k thermal frames with sequence-level splits to prevent data leakage, achieving mAP@0.50 of 0.919.</li>
+                    <li>Implemented BoT-SORT multi-object tracking with MOT-format export; roadmap includes IR+RGB weighted box fusion and monocular depth estimation.</li>
+                    <li>Managed training jobs on a SLURM-based HPC cluster across the full pipeline from raw Anti-UAV frames through YOLO-format conversion to inference.</li>
+                </BulletList>
+            </ProjectItem>
 
-            <div className="project-item">
-                <h3>FootyLiveliness - Premier League Match Excitement Predictor</h3>
-                <p><strong>Technologies:</strong> Python, Machine Learning, Data Analysis</p>
-                <p><em>2024</em> | <a href="https://github.com/James-Njoroge/FootyLiveliness" target="_blank">GitHub</a>
-                </p>
-                <ul>
-                    <li>Collaborative project predicting match excitement levels based on historical Premier League
-                        data
-                    </li>
-                    <li>Implemented machine learning models to analyze match statistics and predict entertainment
-                        value
-                    </li>
-                    <li>Contributed to feature engineering pipeline incorporating team form, historical matchups, and
-                        playing styles
-                    </li>
-                </ul>
-            </div>
+            <ProjectItem>
+                <ItemHeader>
+                    <h3>EPL Match Outcome Predictor — Dual-Task Transformer</h3>
+                    <span>2025</span>
+                </ItemHeader>
+                <Meta>
+                    <a href="https://github.com/Foladipo1" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </Meta>
+                <TagRow>
+                    {["PyTorch", "Transformers", "Pandas", "scikit-learn"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Trained Transformer and MLP models on 3,420 EPL matches for simultaneous outcome classification and goal differential regression, achieving 57% accuracy exceeding published baselines.</li>
+                    <li>Encoded 20-match rolling team history using advanced football metrics (xG, PPDA, deep progressions); compared positional vs. learned encodings across architectures.</li>
+                    <li>MLP outperformed Transformer by 11% accuracy, attributed to dataset size constraints and feature engineering quality.</li>
+                </BulletList>
+            </ProjectItem>
 
-            <div className="project-item">
-                <h3>To-Do Calendar Application</h3>
-                <p><strong>Technologies:</strong> JavaScript, React, Node.js, Express, MongoDB</p>
-                <p><em>CS 411 Software Engineering | 2024</em> | <a
-                    href="https://github.com/CS-411-To-Do-Calendar/to-do-list" target="_blank">GitHub</a></p>
-                <ul>
-                    <li>Collaborative full-stack web application for task management with calendar integration</li>
-                    <li>Implemented RESTful API backend with user authentication and database persistence</li>
-                    <li>Developed responsive React frontend with drag-and-drop task scheduling interface</li>
-                    <li>Applied agile development methodology with sprint planning and code reviews</li>
-                </ul>
-            </div>
+            <ProjectItem>
+                <ItemHeader>
+                    <h3>FootyLiveliness — Match Excitement Predictor</h3>
+                    <span>2024</span>
+                </ItemHeader>
+                <Meta>
+                    <a href="https://github.com/James-Njoroge/FootyLiveliness" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </Meta>
+                <TagRow>
+                    {["Python", "scikit-learn", "Pandas"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Collaborative project predicting Premier League match excitement levels from historical match data.</li>
+                    <li>Contributed to feature engineering pipeline incorporating team form, historical matchups, and playing styles.</li>
+                </BulletList>
+            </ProjectItem>
 
-            <div className="project-item">
-                <h3>Mini Facebook — Social Networking Web App</h3>
-                <p><strong>Technologies:</strong> Python, Django, HTML/CSS, SQLite</p>
-                <p><em>CS 412 Full Stack Development | 2025</em></p>
-                <ul>
-                    <li>Built a Facebook-style social networking application with user authentication, profiles, and
-                        friend relationships
-                    </li>
-                    <li>Implemented status posting with multi-image uploads and timestamped content using Django models
-                        and forms
-                    </li>
-                    <li>Developed personalized news feed aggregating posts from friends with full CRUD functionality
-                    </li>
-                    <li>Deployed the application on a university-hosted server for live use during the course</li>
-                </ul>
-            </div>
+            <ProjectItem>
+                <ItemHeader>
+                    <h3>Quiz App</h3>
+                    <span>2025</span>
+                </ItemHeader>
+                <Meta>
+                    <a href="https://github.com/Foladipo1/quiz-app" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </Meta>
+                <TagRow>
+                    {["Next.js", "TypeScript", "MongoDB", "styled-components"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Built full-stack quiz application with leaderboard, score submission, and Google OAuth authentication.</li>
+                    <li>Owned the backend: MongoDB layer, server actions, and SSR hydration fixes with styled-components registry.</li>
+                </BulletList>
+            </ProjectItem>
 
-            <div className="project-item">
-                <h3>Footy — Pickup Games & Team Management Platform (Solo Project)</h3>
-                <p><strong>Technologies:</strong> Python, Django, HTML/CSS, SQLite</p>
-                <p><em>CS 412 Full Stack Development | 2025</em></p>
-                <ul>
-                    <li>Designed and built a solo, full-stack soccer community platform for player profiles, pickup
-                        games, and team management
-                    </li>
-                    <li>Implemented pickup game creation, join/leave functionality, team invitations, and match
-                        scheduling with role-based permissions
-                    </li>
-                    <li>Added player statistics, profile comments, and video uploads to support richer user
-                        interaction
-                    </li>
-                    <li>Enabled one-click navigation to game locations using address-based Google Maps links and
-                        deployed on a university server
-                    </li>
-                </ul>
-            </div>
+            <ProjectItem>
+                <ItemHeader>
+                    <h3>To-Do Calendar Application</h3>
+                    <span>2024</span>
+                </ItemHeader>
+                <Meta>
+                    <a href="https://github.com/CS-411-To-Do-Calendar/to-do-list" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </Meta>
+                <TagRow>
+                    {["React", "Node.js", "Express", "MongoDB"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Collaborative full-stack task management app with calendar integration, RESTful API, and drag-and-drop scheduling.</li>
+                    <li>Implemented user authentication and database persistence; applied agile methodology with sprint planning.</li>
+                </BulletList>
+            </ProjectItem>
 
+            <ProjectItem>
+                <ItemHeader>
+                    <h3>Footy — Pickup Games & Team Management Platform</h3>
+                    <span>2025</span>
+                </ItemHeader>
+                <TagRow>
+                    {["Python", "Django", "SQLite", "HTML/CSS"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Solo full-stack soccer community platform with player profiles, pickup game creation, team invitations, and match scheduling.</li>
+                    <li>Added player statistics, profile comments, video uploads, and Google Maps integration; deployed on university server.</li>
+                </BulletList>
+            </ProjectItem>
 
-            {/*// <!-- Calculator section -->*/}
-            <h2>JavaScript Calculator</h2>
-            <p>An interactive calculator demonstrating JavaScript functionality and DOM manipulation.</p>
-           <Calculator/>
-        </ProjectStyled>
-    )
+            <ProjectItem>
+                <ItemHeader>
+                    <h3>Mini Facebook — Social Networking Web App</h3>
+                    <span>2025</span>
+                </ItemHeader>
+                <TagRow>
+                    {["Python", "Django", "SQLite", "HTML/CSS"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Facebook-style social networking app with user authentication, friend relationships, and personalized news feed.</li>
+                    <li>Implemented status posting with multi-image uploads and full CRUD functionality; deployed on university server.</li>
+                </BulletList>
+            </ProjectItem>
+
+        </Wrapper>
+    );
 }

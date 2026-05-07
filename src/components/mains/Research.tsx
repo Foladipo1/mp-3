@@ -1,156 +1,147 @@
-import styled  from "styled-components";
+import styled from "styled-components";
 
-const ResearchStyled =styled.main`
-    min-height: 100vh /* viewport height and removes whitespace at the bottom */;
-    width: 70%;
-    text-align: center;
-    padding: 5vw; /* responsive margins to shrink with viewport*/
-    font-size: calc(2px + 1.5vw);
-    background-color: #ffffff;
+const Wrapper = styled.main`
+    font-family: 'DM Sans', sans-serif;
+    color: #1a1a1a;
+    max-width: 720px;
+`;
 
-    h2 {
-        font-size: calc(18px + 1vw);
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: #2c3e50;
-        border-bottom: 2px solid #c0392b;
-        padding-bottom: 0.5rem;
-    }
+const SectionTitle = styled.h2`
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8e4df;
+`;
 
-    h3 {
-        font-size: calc(14px + 0.8vw);
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-    }
+const ResearchItem = styled.div`
+  padding: 28px 0;
+  border-bottom: 1px solid #e8e4df;
 
-    h4 {
-        font-size: calc(12px + 0.6vw);
-        font-weight: 600;
-        color: #34495e;
-    }
+  &:last-child { border-bottom: none; }
+`;
 
-    p {
-        font-size: calc(12px + 0.4vw);
-        line-height: 1.6;
-        margin-bottom: 0.8rem;
-        color: #34495e;
-    }
+const ItemHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 4px;
 
-    p strong {
-        font-weight: 700;
-        color: #2c3e50;
-    }
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+  }
 
-    p em {
-        color: #7f8c8d;
-        font-style: italic;
-    }
+  span {
+    font-size: 0.8rem;
+    color: #6b6b6b;
+    white-space: nowrap;
+  }
+`;
 
-    ul {
-        margin-left: 2rem;
-        margin-bottom: 1rem;
-    }
+const Meta = styled.p`
+  font-size: 0.8rem;
+  color: #6b6b6b;
+  margin: 0 0 12px;
+`;
 
-    li {
-        font-size: calc(11px + 0.4vw);
-        line-height: 1.7;
-        margin-bottom: 0.5rem;
-        color: #34495e;
-    }
+const TagRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+`;
 
-    a {
-        color: #c0392b;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
+const Tag = styled.span`
+  font-size: 0.78rem;
+  color: #1a1a1a;
+  background: #f0eee9;
+  padding: 3px 10px;
+  border-radius: 20px;
+`;
 
-    h3 + p {
-        margin-top: 0.3rem;
-    }
+const BulletList = styled.ul`
+  margin: 0;
+  padding-left: 16px;
 
-    hr {
-        border: none;
-        border-top: 1px solid #bdc3c7;
-        margin: 3rem 0;
-    }
+  li {
+    font-size: 0.85rem;
+    color: #3a3a3a;
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+`;
 
+const PaperLink = styled.a`
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid #1a1a1a;
+  &:hover { color: #6b6b6b; border-color: #6b6b6b; }
+`;
 
-    @media (max-width: 999px) {
-            width: 100%;
-    }
-    @media (max-width: 749px) {
-        width: 100%;
-
-        .research-item{
-            padding: 1.5rem 0;}
-
-        h2 {
-            font-size: calc(16px + 1vw);
-        }
-
-        ul {
-            margin-left: 1.5rem;
-        }
-    }
-
-    .research-item
-    {
-        text-align: left;
-        padding: 2rem 0;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 1.5rem;
-    }
-`
-export default function Research(){
+export default function Research() {
     return (
-        <ResearchStyled>
-            <h2>Research Projects</h2>
+        <Wrapper>
+            <SectionTitle>Research</SectionTitle>
 
-            <div className="research-item">
-                <h3>Cross-Modal Interpretability Study: Vision & NLP</h3>
-                <p><strong>Technologies:</strong> PyTorch, Grad-CAM, BERT, LIME, ResNet-50</p>
-                <p><em>2025</em></p>
-                <ul>
-                    <li>Evaluated gradient-based attribution methods and LIME on BERT sentiment analysis across multiple
-                        datasets
-                    </li>
-                    <li>Tested 4 saliency methods (Grad-CAM, Integrated Gradients, Saliency Maps, Occlusion) on
-                        ResNet-50 image recognition tasks
-                    </li>
-                    <li>Designed and conducted human evaluation studies with 30 text annotators and 20 vision
-                        participants to measure alignment between model explanations and human reasoning
-                    </li>
-                    <li>Found gradient methods achieved 5× higher human alignment than LIME in text tasks; CAM methods
-                        substantially outperformed Integrated Gradients in vision tasks
-                    </li>
-                    <li>Contributed to understanding which interpretability methods best match human intuition across
-                        modalities
-                    </li>
-                </ul>
-            </div>
+            <ResearchItem>
+                <ItemHeader>
+                    <h3>Access Path Selection in Modern Columnar DBMSs</h3>
+                    <span>2025</span>
+                </ItemHeader>
+                <Meta>Boston University · w/ Daniel Silla & Zach Verdieu</Meta>
+                <TagRow>
+                    {["C++", "DuckDB", "AVX-512", "TPC-H", "Python"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Evaluated Column Sketches (AVX-512), Zone Maps, CUBIT, and RABIT bitmap indexing in a custom DuckDB engine with PAX-like storage across selectivity, cardinality, and distribution dimensions.</li>
+                    <li>Key finding: data layout (clustering) dominated all access path choices, reducing query latency by over 30× regardless of mechanism — outweighing any theoretical advantage of specialized indexes.</li>
+                    <li>Proposed an empirically-grounded access path decision model for modern PAX-based columnar DBMSs.</li>
+                </BulletList>
+                <PaperLink href="https://github.com/Foladipo1/Access-Path-Selection/tree/Experiments" target="_blank" rel="noreferrer">
+                    View Repository ↗
+                </PaperLink>
+            </ResearchItem>
 
-            <div className="research-item">
-                <h3>Medical Imaging Classification with Deep Learning</h3>
-                <p><strong>Foremost Radiology Consultant Limited</strong> | Lagos, Nigeria</p>
-                <p><strong>Technologies:</strong> PyTorch, CNNs, Transfer Learning</p>
-                <p><em>Summer 2025</em></p>
-                <ul>
-                    <li>Evaluated multiple CNN architectures (ResNet, DenseNet, EfficientNet) for medical scan
-                        classification across different imaging modalities
-                    </li>
-                    <li>Conducted comparative accuracy analysis identifying performance gaps between architectures on
-                        various scan types
-                    </li>
-                    <li>Documented model behavior on edge cases and challenging clinical scenarios for radiologist
-                        review
-                    </li>
-                    <li>Collaborated with radiologists to define clinically-relevant evaluation criteria and interpret
-                        model predictions in medical context
-                    </li>
-                </ul>
-            </div>
-        </ResearchStyled>
-    )
+            <ResearchItem>
+                <ItemHeader>
+                    <h3>Cross-Modal Interpretability Study: Vision & NLP</h3>
+                    <span>2025</span>
+                </ItemHeader>
+                <Meta>Boston University</Meta>
+                <TagRow>
+                    {["PyTorch", "Grad-CAM", "BERT", "LIME", "ResNet-50"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Evaluated 4 saliency methods (Grad-CAM, Integrated Gradients, Saliency Maps, Occlusion) on ResNet-50 and gradient/LIME attribution on BERT sentiment analysis.</li>
+                    <li>Designed human evaluation studies with 50 participants; gradient methods achieved 5× higher alignment than LIME in text tasks.</li>
+                    <li>Contributed to understanding which interpretability methods best match human intuition across modalities.</li>
+                </BulletList>
+            </ResearchItem>
+
+            <ResearchItem>
+                <ItemHeader>
+                    <h3>Medical Imaging Classification with Deep Learning</h3>
+                    <span>Summer 2025</span>
+                </ItemHeader>
+                <Meta>Foremost Radiology Consultant Ltd. · Lagos, Nigeria</Meta>
+                <TagRow>
+                    {["PyTorch", "CNNs", "Transfer Learning", "ResNet", "DenseNet", "EfficientNet"].map(t => <Tag key={t}>{t}</Tag>)}
+                </TagRow>
+                <BulletList>
+                    <li>Benchmarked 3 CNN architectures on a ~1,000-image chest scan dataset for early tuberculosis detection, automating metric collection and edge-case documentation.</li>
+                    <li>Collaborated with radiologists to define evaluation criteria and interpret model failure modes across imaging modalities.</li>
+                </BulletList>
+            </ResearchItem>
+
+        </Wrapper>
+    );
 }

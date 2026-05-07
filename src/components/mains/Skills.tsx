@@ -1,185 +1,134 @@
 import styled from "styled-components";
 
-const SkillsWrapper = styled.main`
-    min-height: 100vh /* viewport height and removes whitespace at the bottom */;
-    width: 70%;
-    text-align: center;
-    padding: 5vw; /* responsive margins to shrink with viewport*/
-    font-size: calc(2px + 1.5vw);
-    background-color: #ffffff;
+const Wrapper = styled.main`
+    font-family: 'DM Sans', sans-serif;
+    color: #1a1a1a;
+    max-width: 720px;
+`;
 
-    h2 {
-        font-size: calc(18px + 1vw);
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: #2c3e50;
-        border-bottom: 2px solid #c0392b;
-        padding-bottom: 0.5rem;
-    }
+const SectionTitle = styled.h2`
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8e4df;
+`;
 
-    h3 {
-        font-size: calc(14px + 0.8vw);
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-    }
+const SkillGroup = styled.div`
+  margin-bottom: 24px;
 
-    h4 {
-        font-size: calc(12px + 0.6vw);
-        font-weight: 600;
-        color: #34495e;
-    }
+  h3 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #6b6b6b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 10px;
+  }
+`;
 
-    p {
-        font-size: calc(12px + 0.4vw);
-        line-height: 1.6;
-        margin-bottom: 0.8rem;
-        color: #34495e;
-    }
+const TagRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
 
-    p strong {
-        font-weight: 700;
-        color: #2c3e50;
-    }
+const Tag = styled.span`
+  font-size: 0.82rem;
+  color: #1a1a1a;
+  background: #f0eee9;
+  padding: 4px 12px;
+  border-radius: 20px;
+`;
 
-    p em {
-        color: #7f8c8d;
-        font-style: italic;
-    }
+const Divider = styled.hr`
+  border: none;
+  border-top: 1px solid #e8e4df;
+  margin: 36px 0;
+`;
 
-    ul {
-        margin-left: 2rem;
-        margin-bottom: 1rem;
-    }
+const AchievementItem = styled.div`
+  margin-bottom: 28px;
 
-    li {
-        font-size: calc(11px + 0.4vw);
-        line-height: 1.7;
-        margin-bottom: 0.5rem;
-        color: #34495e;
-    }
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0 0 4px;
+  }
 
-    a {
-        color: #c0392b;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
+  .meta {
+    font-size: 0.8rem;
+    color: #6b6b6b;
+    margin: 0 0 6px;
+  }
 
-    h3 + p {
-        margin-top: 0.3rem;
-    }
+  p {
+    font-size: 0.85rem;
+    color: #3a3a3a;
+    line-height: 1.6;
+    margin: 0;
+  }
 
-    hr {
-        border: none;
-        border-top: 1px solid #bdc3c7;
-        margin: 3rem 0;
-    }
-    
-    
-    @media (max-width: 999px) {
-            width: 100%;
-    }
-    @media (max-width: 749px) {
-        width: 100%;
+  ul {
+    margin: 6px 0 0 16px;
+    padding: 0;
+    font-size: 0.85rem;
+    color: #3a3a3a;
+    line-height: 1.8;
+  }
+`;
 
-        .skills-section {
-            padding: 1.5rem 0;}
+const skills = [
+    { label: "Languages", tags: ["Python", "C++", "Java", "JavaScript", "SQL"] },
+    { label: "Deep Learning & AI", tags: ["PyTorch", "HuggingFace Transformers", "CNNs", "RNNs", "Transformers", "GANs", "Transfer Learning"] },
+    { label: "Machine Learning & Data", tags: ["XGBoost", "LightGBM", "scikit-learn", "Pandas", "NumPy", "Feature Engineering", "Statistical Learning"] },
+    { label: "Computer Vision & NLP", tags: ["Object Detection", "Grad-CAM", "YOLO", "OpenCV", "BERT", "LIME", "Saliency Methods"] },
+    { label: "Tools & Platforms", tags: ["Git", "SLURM/HPC", "Jupyter", "LaTeX", "Matplotlib"] },
+    { label: "Human Languages", tags: ["English (Native)", "French (Intermediate)"] },
+];
 
-        h2 {
-            font-size: calc(16px + 1vw);
-        }
-
-        ul {
-            margin-left: 1.5rem;
-        }
-    }
-    
-    .skills-section
-   {
-        text-align: left;
-        padding: 2rem 0;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 1.5rem;
-    }
-
-    .achievement-item {
-        text-align: left;
-        padding: 2rem 0;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 1.5rem;
-    }
-    
-`
-export default function Skills(){
+export default function Skills() {
     return (
-        <SkillsWrapper>
-            <h2>Technical Skills</h2>
+        <Wrapper>
+            <SectionTitle>Technical Skills</SectionTitle>
 
-            <div className="skills-section">
-                <h3>Programming Languages</h3>
-                <p>Python, Java, C, JavaScript, SQL</p>
-            </div>
+            {skills.map(({ label, tags }) => (
+                <SkillGroup key={label}>
+                    <h3>{label}</h3>
+                    <TagRow>
+                        {tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                    </TagRow>
+                </SkillGroup>
+            ))}
 
-            <div className="skills-section">
-                <h3>Deep Learning & AI</h3>
-                <p>PyTorch, TensorFlow, HuggingFace Transformers, CNNs, RNNs, Transformers, GANs, Attention Mechanisms,
-                    Transfer Learning, Neural Architecture Design</p>
-            </div>
+            <Divider />
 
-            <div className="skills-section">
-                <h3>Machine Learning & Data Science</h3>
-                <p>XGBoost, LightGBM, scikit-learn, Pandas, NumPy, Feature Engineering, Hyperparameter Tuning, Model
-                    Evaluation, Statistical Learning</p>
-            </div>
+            <SectionTitle>Achievements</SectionTitle>
 
-            <div className="skills-section">
-                <h3>Computer Vision & NLP</h3>
-                <p>Image Classification, Object Detection, Grad-CAM, Saliency Methods, BERT, Sentiment Analysis, Text
-                    Classification, LIME</p>
-            </div>
+            <AchievementItem>
+                <h3>Dean's List — 6 Semesters</h3>
+                <p className="meta">Boston University · Spring 2023 through Fall 2025</p>
+            </AchievementItem>
 
-            <div className="skills-section">
-                <h3>Software Engineering & Systems</h3>
-                <p>Object-Oriented Design, Distributed Systems, Full Stack Development, RESTful APIs, Database
-                    Architecture, Algorithm Design, Data Structures</p>
-            </div>
-
-            <div className="skills-section">
-                <h3>Tools & Platforms</h3>
-                <p>Git, GitHub, Jupyter Notebooks, Google Cloud Platform, Firebase, Matplotlib, Seaborn, LaTeX</p>
-            </div>
-
-            <div className="skills-section">
-                <h3>Languages</h3>
-                <p>English (Native), French (Intermediate - 4 semesters)</p>
-            </div>
-
-            <h2>Achievements & Honors</h2>
-
-            <div className="achievement-item">
-                <h3>Dean's List Recognition</h3>
-                <p><strong>Boston University College of Arts and Sciences</strong></p>
-                <p>Achieved Dean's List honors for 6 semesters: Spring 2023, Fall 2023, Spring 2024, Fall 2024, Summer
-                    2025, Fall 2025</p>
-            </div>
-
-            <div className="achievement-item">
+            <AchievementItem>
                 <h3>Hackathon Placements</h3>
-                <p><strong>Boston University</strong> | Sophomore Year</p>
-                <p>3rd Place and 2nd Place finishes in university hackathon competitions</p>
-            </div>
+                <p className="meta">Boston University · Sophomore Year</p>
+                <p>3rd and 2nd place finishes in university hackathon competitions.</p>
+            </AchievementItem>
 
-            <div className="achievement-item">
+            <AchievementItem>
                 <h3>Cambridge Outstanding Learner Awards</h3>
-                <p><strong>Top in Nigeria</strong> | November 2019</p>
-                <p>Achieved highest marks in Nigeria for three Cambridge O-Level subjects:</p>
+                <p className="meta">Top in Nigeria · November 2019</p>
+                <p>Highest marks in Nigeria across three Cambridge O-Level subjects:</p>
                 <ul>
-                    <li>Economics - Top in Nigeria</li>
-                    <li>Geography - Top in Nigeria</li>
-                    <li>Business Studies - Top in Nigeria</li>
+                    <li>Economics</li>
+                    <li>Geography</li>
+                    <li>Business Studies</li>
                 </ul>
-            </div>
-        </SkillsWrapper>
-    )
+            </AchievementItem>
+        </Wrapper>
+    );
 }
