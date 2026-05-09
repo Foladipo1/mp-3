@@ -53,7 +53,7 @@ export default function Hobbies() {
 
             <HobbyItem>
                 <h3>Gaming</h3>
-                <p>I enjoy both competitive and casual gaming — a good blend of strategy and problem-solving that doubles as a way to unwind.</p>
+                <p>I enjoy both competitive and casual gaming as a good past time.</p>
             </HobbyItem>
 
         </Wrapper>

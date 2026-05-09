@@ -182,6 +182,9 @@ export default function Projects() {
                     <h3>Footy — Pickup Games & Team Management Platform</h3>
                     <span>2025</span>
                 </ItemHeader>
+                <Meta>
+                    <a href="https://github.com/Foladipo1/cs412/tree/main/project" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </Meta>
                 <TagRow>
                     {["Python", "Django", "SQLite", "HTML/CSS"].map(t => <Tag key={t}>{t}</Tag>)}
                 </TagRow>
@@ -196,6 +199,9 @@ export default function Projects() {
                     <h3>Mini Facebook — Social Networking Web App</h3>
                     <span>2025</span>
                 </ItemHeader>
+                <Meta>
+                    <a href="https://github.com/Foladipo1/cs412/tree/main/mini_fb" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </Meta>
                 <TagRow>
                     {["Python", "Django", "SQLite", "HTML/CSS"].map(t => <Tag key={t}>{t}</Tag>)}
                 </TagRow>

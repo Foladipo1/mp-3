@@ -73,7 +73,7 @@ export default function Experience() {
                 </ItemHeader>
                 <Meta>Foremost Radiology Consultant Ltd. · Lagos, Nigeria</Meta>
                 <BulletList>
-                    <li>Built a batch inference pipeline in PyTorch to benchmark 3 CNN architectures on a ~1,000-image chest scan dataset for early tuberculosis detection, automating metric collection and edge-case documentation.</li>
+                    <li>Built a batch inference pipeline in PyTorch to benchmark 3 CNN architectures on a about 1,000-image chest scan dataset for early tuberculosis detection, automating metric collection and edge-case documentation.</li>
                     <li>Collaborated with radiologists to define evaluation criteria and interpret model failure modes across imaging modalities.</li>
                 </BulletList>
             </ExperienceItem>
@@ -81,7 +81,7 @@ export default function Experience() {
             <ExperienceItem>
                 <ItemHeader>
                     <h3>Course Assistant — Deep Learning, Systems & Algorithms</h3>
-                    <span>2023 – Present</span>
+                    <span>2023 – 2026</span>
                 </ItemHeader>
                 <Meta>Boston University · Boston, MA</Meta>
                 <BulletList>
@@ -90,6 +90,7 @@ export default function Experience() {
                     <li>Graded assignments and contributed occasional updates to course materials.</li>
                 </BulletList>
             </ExperienceItem>
+
 
             <ExperienceItem>
                 <ItemHeader>

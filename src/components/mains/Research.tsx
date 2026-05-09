@@ -103,7 +103,7 @@ export default function Research() {
                 </TagRow>
                 <BulletList>
                     <li>Evaluated Column Sketches (AVX-512), Zone Maps, CUBIT, and RABIT bitmap indexing in a custom DuckDB engine with PAX-like storage across selectivity, cardinality, and distribution dimensions.</li>
-                    <li>Key finding: data layout (clustering) dominated all access path choices, reducing query latency by over 30× regardless of mechanism — outweighing any theoretical advantage of specialized indexes.</li>
+                    <li>Key finding: data layout (clustering) dominated all access path choices, reducing query latency by over 30× regardless of mechanism  outweighing any theoretical advantage of specialized indexes.</li>
                     <li>Proposed an empirically-grounded access path decision model for modern PAX-based columnar DBMSs.</li>
                 </BulletList>
                 <PaperLink href="https://github.com/Foladipo1/Access-Path-Selection/tree/Experiments" target="_blank" rel="noreferrer">

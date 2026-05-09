@@ -99,7 +99,6 @@ const links = [
     { to: "/research", label: "Research" },
     { to: "/education", label: "Education" },
     { to: "/experience", label: "Experience" },
-    { to: "/hobbies", label: "Hobbies" },
 ];
 
 export default function Nav() {
