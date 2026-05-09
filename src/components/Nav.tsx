@@ -1,10 +1,6 @@
 import { Link, useLocation } from "react-router";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { useState } from "react";
-
-const GlobalFont = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@500&display=swap');
-`;
 
 const NavWrapper = styled.nav`
     position: sticky;
@@ -63,10 +59,10 @@ const HamburgerButton = styled.button<{ $open: boolean }>`
         transform-origin: center;
     }
     ${({ $open }) => $open && `
-    span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    span:nth-child(2) { opacity: 0; }
-    span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-  `}
+        span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        span:nth-child(2) { opacity: 0; }
+        span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    `}
 `;
 
 const MobileMenu = styled.div<{ $open: boolean }>`
@@ -112,7 +108,6 @@ export default function Nav() {
 
     return (
         <>
-            <GlobalFont />
             <NavWrapper>
                 <NavLinks>
                     {links.map(({ to, label }) => (

@@ -11,7 +11,6 @@ import Hobbies from './components/mains/Hobbies';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@500&display=swap');
     *, *::before, *::after { box-sizing: border-box; }
     body {
         margin: 0;
